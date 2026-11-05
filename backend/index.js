@@ -15,13 +15,13 @@ mongoose.connect("mongodb+srv://myuser:g6RsMxQGaTiT_ML@cluster0.ls4okck.mongodb.
 
 
 app.post("/sendemail", (req, res) => {
-
+ 
     const emailContent = req.body.emailContent;
     const emailList = req.body.emailList;
 
     console.log("Received email content:", emailContent);
 
-    const Credential = mongoose.model("Credential", new mongoose.Schema({
+    const Credential = mongoose.models.Credential || mongoose.model("Credential", new mongoose.Schema({
         user: String,
         pass: String,   
   
